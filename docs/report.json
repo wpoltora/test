@@ -1,0 +1,566 @@
+{
+  "stats": {
+    "suites": 9,
+    "tests": 15,
+    "passes": 15,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-02T17:26:02.684Z",
+    "end": "2025-01-02T17:26:12.831Z",
+    "duration": 10147,
+    "testsRegistered": 15,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5a7be643-4221-4c0b-a3fa-62e09ef8c6ca",
+      "title": "",
+      "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+      "file": "\\test\\test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bd77dddf-79c5-4972-a396-1d7aebeefdc6",
+          "title": "Webstore Tests",
+          "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+          "file": "\\test\\test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Webstore Tests\"",
+              "fullTitle": "Webstore Tests \"before all\" hook in \"Webstore Tests\"",
+              "timedOut": false,
+              "duration": 1578,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "switch (browser) {\n    case 'chrome':\n        options = new chrome.Options();\n        options.addArguments('--ignore-certificate-errors');\n        driver = new Builder().forBrowser('chrome').setChromeOptions(options).build();\n        break;\n    case 'firefox':\n        options = new firefox.Options();\n        options.setAcceptInsecureCerts(true);\n        driver = new Builder().forBrowser('firefox').setFirefoxOptions(options).build();\n        break;\n    default:\n        throw new Error(`Unsupported browser: ${browser}`);\n}\nproductPage = new ProductPage(driver);\nbasketPage = new BasketPage(driver);\ncontactPage = new ContactPage(driver);\npageBase = new PageBase(driver);\nawait driver.get('https://localhost');\nawait dismissCookieBar(driver);",
+              "err": {},
+              "uuid": "106a5d43-21bc-4cc5-8c58-9a57b6aa4da7",
+              "parentUUID": "bd77dddf-79c5-4972-a396-1d7aebeefdc6",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Webstore Tests\"",
+              "fullTitle": "Webstore Tests \"after all\" hook in \"Webstore Tests\"",
+              "timedOut": false,
+              "duration": 130,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();  // Close the browser after tests\n}",
+              "err": {},
+              "uuid": "1a86dd03-ec9a-49d8-87fb-da2f499dc531",
+              "parentUUID": "bd77dddf-79c5-4972-a396-1d7aebeefdc6",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "acd25b5d-2985-46e1-b1d7-504eb1c3a7d2",
+              "title": "Homepage Tests",
+              "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should load the homepage and verify title",
+                  "fullTitle": "Webstore Tests Homepage Tests should load the homepage and verify title",
+                  "timedOut": false,
+                  "duration": 88,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get('https://localhost');\nconst title = await driver.getTitle();\nassert.equal(title, 'Stella - wyjątkowe zaproszenia ślubne');",
+                  "err": {},
+                  "uuid": "7b198c71-cc94-41c7-a8c4-23c2158b3dab",
+                  "parentUUID": "acd25b5d-2985-46e1-b1d7-504eb1c3a7d2",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should have a visible header",
+                  "fullTitle": "Webstore Tests Homepage Tests should have a visible header",
+                  "timedOut": false,
+                  "duration": 66,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get('https://localhost');\nconst header = await driver.findElement(By.css('header')); // Adjust the selector as per your site\nconst isDisplayed = await header.isDisplayed();\nassert.isTrue(isDisplayed, 'Header is not displayed on homepage');",
+                  "err": {},
+                  "uuid": "77402ec1-bfee-4382-95fe-11bf4910f56e",
+                  "parentUUID": "acd25b5d-2985-46e1-b1d7-504eb1c3a7d2",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should have a visible navbar",
+                  "fullTitle": "Webstore Tests Homepage Tests should have a visible navbar",
+                  "timedOut": false,
+                  "duration": 70,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get('https://localhost');\nconst header = await driver.findElement(By.className('navbar')); // Adjust the selector as per your site\nconst isDisplayed = await header.isDisplayed();\nassert.isTrue(isDisplayed, 'Navbar is not displayed on homepage');",
+                  "err": {},
+                  "uuid": "1ee2aa49-ddcd-49f5-a2b0-15de417e5c58",
+                  "parentUUID": "acd25b5d-2985-46e1-b1d7-504eb1c3a7d2",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should have a visible footer",
+                  "fullTitle": "Webstore Tests Homepage Tests should have a visible footer",
+                  "timedOut": false,
+                  "duration": 63,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get('https://localhost');\nconst header = await driver.findElement(By.css('footer')); // Adjust the selector as per your site\nconst isDisplayed = await header.isDisplayed();\nassert.isTrue(isDisplayed, 'Footer is not displayed on homepage');",
+                  "err": {},
+                  "uuid": "533e6e0f-e494-48ac-8dc2-44e71962a600",
+                  "parentUUID": "acd25b5d-2985-46e1-b1d7-504eb1c3a7d2",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [
+                {
+                  "uuid": "77440ebb-ed9e-4dd6-aded-e12caf4bfc0e",
+                  "title": "Webstore Responsiveness Tests",
+                  "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+                  "file": "\\test\\test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "should display mobile menu correctly on mobile screen size",
+                      "fullTitle": "Webstore Tests Homepage Tests Webstore Responsiveness Tests should display mobile menu correctly on mobile screen size",
+                      "timedOut": false,
+                      "duration": 547,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.manage().window().setRect({ width: 375, height: 812 });\nawait driver.get('https://localhost');\nlet mobileMenu = await driver.findElement(By.id('hamburger'));\nassert.isTrue(await mobileMenu.isDisplayed(), 'Mobile menu should be visible on mobile size');\nlet navbarUl = await driver.findElement(By.css('#navbar > div > ul'));\nassert.isFalse(await navbarUl.isDisplayed(), 'Navbar links should not be visible before menu click');\nawait mobileMenu.click();\nassert.isTrue(await navbarUl.isDisplayed(), 'Navbar links should be visible after menu click');",
+                      "err": {},
+                      "uuid": "dc8071ab-3b39-40d7-af55-4c2a08fdd843",
+                      "parentUUID": "77440ebb-ed9e-4dd6-aded-e12caf4bfc0e",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "should display tablet menu correctly on tablet screen size",
+                      "fullTitle": "Webstore Tests Homepage Tests Webstore Responsiveness Tests should display tablet menu correctly on tablet screen size",
+                      "timedOut": false,
+                      "duration": 108,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.manage().window().setRect({ width: 768, height: 1024 });\nawait driver.get('https://localhost');\nlet tabletMenu = await driver.findElement(By.id('hamburger'));\nassert.isTrue(await tabletMenu.isDisplayed(), 'Tablet menu should be visible on tablet size');\nlet navbarUl = await driver.findElement(By.css('#navbar > div > ul'));\nassert.isFalse(await navbarUl.isDisplayed(), 'Navbar links should not be visible before menu click');\nawait tabletMenu.click();\nassert.isTrue(await navbarUl.isDisplayed(), 'Navbar links should be visible after menu click');",
+                      "err": {},
+                      "uuid": "1eeabd87-58b6-4ff1-8ec4-adc41ffdcb99",
+                      "parentUUID": "77440ebb-ed9e-4dd6-aded-e12caf4bfc0e",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "should display desktop menu correctly on desktop screen size",
+                      "fullTitle": "Webstore Tests Homepage Tests Webstore Responsiveness Tests should display desktop menu correctly on desktop screen size",
+                      "timedOut": false,
+                      "duration": 88,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.manage().window().setRect({ width: 1920, height: 1080 });\nawait driver.get('https://localhost');\nlet desktopMenu = await driver.findElement(By.id('hamburger'));\nassert.isFalse(await desktopMenu.isDisplayed(), 'Desktop menu should not be visible on desktop size');\nlet navbarUl = await driver.findElement(By.css('#navbar > div > ul'));\nassert.isTrue(await navbarUl.isDisplayed(), 'Navbar links should be visible before menu click');",
+                      "err": {},
+                      "uuid": "a3da0314-b074-406a-b23e-733c189a5fc7",
+                      "parentUUID": "77440ebb-ed9e-4dd6-aded-e12caf4bfc0e",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "dc8071ab-3b39-40d7-af55-4c2a08fdd843",
+                    "1eeabd87-58b6-4ff1-8ec4-adc41ffdcb99",
+                    "a3da0314-b074-406a-b23e-733c189a5fc7"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 743,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 10000
+                },
+                {
+                  "uuid": "0212e6b3-e652-4bfa-bdab-bb97f7faba46",
+                  "title": "Searchbar Tests",
+                  "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+                  "file": "\\test\\test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "should display searchbar",
+                      "fullTitle": "Webstore Tests Homepage Tests Searchbar Tests should display searchbar",
+                      "timedOut": false,
+                      "duration": 190,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.get('https://localhost');\nlet searchIcon = await pageBase.getSearchIcon();\nlet searchInput = await pageBase.getSearchInput();\nassert.isFalse(await searchInput.isDisplayed(), 'Search input should not be visible on start');\nassert.isTrue(await searchIcon.isDisplayed(), 'Search icon is not displayed');\nawait searchIcon.click();\nassert.isTrue(await searchInput.isDisplayed(), 'Search input should be visible on click');",
+                      "err": {},
+                      "uuid": "1ac69ab0-1a00-488e-b2ba-c94de755c19c",
+                      "parentUUID": "0212e6b3-e652-4bfa-bdab-bb97f7faba46",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "should display correct message if less than 3 characters inserted",
+                      "fullTitle": "Webstore Tests Homepage Tests Searchbar Tests should display correct message if less than 3 characters inserted",
+                      "timedOut": false,
+                      "duration": 820,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.get('https://localhost');\nconst searchInput = await pageBase.getSearchInput();\npageBase.clickSearchIcon();\nassert.equal(await pageBase.getSearchMessage(), 'Wpisz przynajmniej trzy litery', \"Should display a different message\");\nawait searchInput.sendKeys('r');\nassert.equal(await pageBase.getSearchMessage(), 'Wpisz przynajmniej trzy litery', \"Should display a different message\");\nawait searchInput.sendKeys('ó');\nassert.equal(await pageBase.getSearchMessage(), 'Wpisz przynajmniej trzy litery', \"Should display a different message\");\nawait searchInput.sendKeys('ż');\nconst messageElement = await driver.findElement(By.css('#searchbar-results > p'));\nawait driver.wait(until.stalenessOf(messageElement), 5000);\ntry {\n    await pageBase.getSearchMessage(); // Try to get the message\n    assert.fail('Expected NoSuchElementError, but no error was thrown'); // Fail the test if no error is thrown\n} catch (e) {\n    if (e.name === 'NoSuchElementError') {\n        return;\n    } else {\n        throw e;  // Rethrow unexpected errors\n    }\n}",
+                      "err": {},
+                      "uuid": "dcb79857-f9ef-439d-bb6f-88282f98ef42",
+                      "parentUUID": "0212e6b3-e652-4bfa-bdab-bb97f7faba46",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "1ac69ab0-1a00-488e-b2ba-c94de755c19c",
+                    "dcb79857-f9ef-439d-bb6f-88282f98ef42"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 1010,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 10000
+                }
+              ],
+              "passes": [
+                "7b198c71-cc94-41c7-a8c4-23c2158b3dab",
+                "77402ec1-bfee-4382-95fe-11bf4910f56e",
+                "1ee2aa49-ddcd-49f5-a2b0-15de417e5c58",
+                "533e6e0f-e494-48ac-8dc2-44e71962a600"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 287,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "2b27ad72-3d54-43f6-bdcf-b55b2ddf9412",
+              "title": "Contact Tests",
+              "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should accept only correct email format",
+                  "fullTitle": "Webstore Tests Contact Tests should accept only correct email format",
+                  "timedOut": false,
+                  "duration": 1257,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get('https://localhost/kontakt');\nawait contactPage.setFields('John Doe', 'invailid-email', 'Test message');\nawait contactPage.submit();\nlet emailValidationMessage = await contactPage.getValidationMessage(By.id('email'));\nassert.isNotEmpty(emailValidationMessage, 'Form should not accept an incorrect email');\nawait contactPage.setEmail('email@email.com');\nemailValidationMessage = await contactPage.getValidationMessage(By.id('email'));\nassert.isEmpty(emailValidationMessage, 'Form should accept a correct email');",
+                  "err": {},
+                  "uuid": "43355b18-fe10-4f1c-87e9-d1ab88b13def",
+                  "parentUUID": "2b27ad72-3d54-43f6-bdcf-b55b2ddf9412",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should clear fields after submission",
+                  "fullTitle": "Webstore Tests Contact Tests should clear fields after submission",
+                  "timedOut": false,
+                  "duration": 1184,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await driver.get('https://localhost/kontakt');\nawait contactPage.setFields('John Does', 'email@email.com', 'Test message');\nawait contactPage.submit();\nassert.isTrue(await contactPage.isClear(), 'Fields should be cleared after submit');",
+                  "err": {},
+                  "uuid": "129c754b-40c9-4c3f-9084-483f68cd4c41",
+                  "parentUUID": "2b27ad72-3d54-43f6-bdcf-b55b2ddf9412",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "43355b18-fe10-4f1c-87e9-d1ab88b13def",
+                "129c754b-40c9-4c3f-9084-483f68cd4c41"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2441,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "97c386a1-dbbe-4813-b746-f4b0b04c4de5",
+              "title": "Basket Tests",
+              "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should add 50 items to basket and increase by one",
+                  "fullTitle": "Webstore Tests Basket Tests should add 50 items to basket and increase by one",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "28ae65e8-95cc-44cb-b7c4-1291f2317407",
+                  "parentUUID": "97c386a1-dbbe-4813-b746-f4b0b04c4de5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "28ae65e8-95cc-44cb-b7c4-1291f2317407"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "eb3d6f7e-79f9-4f9b-8e2f-0946d9069cc2",
+              "title": "Webstore end-to-end tests",
+              "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "2b14ec84-0a26-4be8-a461-b24911d3647e",
+                  "title": "Shop Tests",
+                  "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+                  "file": "\\test\\test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "should add item to basket and check cart details",
+                      "fullTitle": "Webstore Tests Webstore end-to-end tests Shop Tests should add item to basket and check cart details",
+                      "timedOut": false,
+                      "duration": 619,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.get('https://localhost/produkt/Zaproszenia/Róże');\nawait productPage.addToCart();\nawait driver.get('https://localhost/koszyk');\nconst lastBasketItem = await basketPage.getLastItem();\nconst basketItemTitle = await basketPage.getTitleOfItem(lastBasketItem);\nassert.include(basketItemTitle, 'Zaproszenie róże', 'Title is not correct');",
+                      "err": {},
+                      "uuid": "e62d03d8-e5b7-4dc7-a4ec-121e5859219f",
+                      "parentUUID": "2b14ec84-0a26-4be8-a461-b24911d3647e",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "should add 50 items to basket and increase by one",
+                      "fullTitle": "Webstore Tests Webstore end-to-end tests Shop Tests should add 50 items to basket and increase by one",
+                      "timedOut": false,
+                      "duration": 769,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.get('https://localhost/produkt/Zaproszenia/Róże');\nawait productPage.setCount('55');\nawait productPage.addToCart();\nawait driver.get('https://localhost/koszyk');\nconst lastBasketItem = await basketPage.getLastItem();\nawait basketPage.increaseCountOfItemBy(lastBasketItem, 3);\nassert(await basketPage.getAmountOfItem(), '58', 'The number should be 58');",
+                      "err": {},
+                      "uuid": "bb3e85e9-e9a0-4700-b18c-d705e6db6321",
+                      "parentUUID": "2b14ec84-0a26-4be8-a461-b24911d3647e",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "e62d03d8-e5b7-4dc7-a4ec-121e5859219f",
+                    "bb3e85e9-e9a0-4700-b18c-d705e6db6321"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 1388,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 10000
+                },
+                {
+                  "uuid": "f8e0c0f6-df29-4293-b021-fadba01b9d9a",
+                  "title": "Search Tests",
+                  "fullFile": "C:\\Projects\\Slubex\\test\\test.js",
+                  "file": "\\test\\test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "should search correct product and show it on click",
+                      "fullTitle": "Webstore Tests Webstore end-to-end tests Search Tests should search correct product and show it on click",
+                      "timedOut": false,
+                      "duration": 2563,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await driver.get('https://localhost');\nawait pageBase.clickSearchIcon();\nconst searchInput = await pageBase.getSearchInput();\nawait searchInput.sendKeys('Zaproszenie róże');\nawait driver.sleep(2000);\nconst item = await driver.wait(until.elementIsVisible(driver.findElement(By.css('#searchbar-results .item'))), 5000);\nawait item.click();\nlet title = await driver.wait(until.elementLocated(By.css('h2.heading')), 5000);\nassert.equal(await title.getText(), 'Zaproszenie róże');",
+                      "err": {},
+                      "uuid": "502b5d51-5927-4eac-aa31-c742c9ae16a8",
+                      "parentUUID": "f8e0c0f6-df29-4293-b021-fadba01b9d9a",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "502b5d51-5927-4eac-aa31-c742c9ae16a8"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 2563,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 10000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "./reports",
+        "reportFilename": "report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
